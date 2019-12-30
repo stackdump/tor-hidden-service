@@ -8,9 +8,12 @@ ENV SERVICE_URI 127.0.0.1:80
 
 ### Tor
 
+RUN apt-get update && \
+    apt-get install -y curl
+
 RUN echo deb http://deb.torproject.org/torproject.org xenial main >> /etc/apt/sources.list.d/tor.list && \
     echo deb-src http://deb.torproject.org/torproject.org xenial main >> /etc/apt/sources.list.d/tor.list && \
-    gpg --keyserver keys.gnupg.net --recv A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 && \
+    curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import && \
     gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | apt-key add - && \
     apt-get update && \
     apt-get install -y tor deb.torproject.org-keyring gettext-base && \

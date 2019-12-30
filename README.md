@@ -1,8 +1,6 @@
-# Tor Hidden Service Docker Container
+# Factom Tor Hidden Service Docker Container
 
-Simple container to make a service available over tor. This is not a minimal
-container, rather being built onto of Ubuntu xenial so we can use the official
-packages and repository for tor.
+Run Factomd as a tor hidden service
 
 ## Running
 
